@@ -10,12 +10,12 @@ interface NameProps {
     name: string
     index: number
 }
-const props = defineProps<NameProps>()
+const { name, index } = defineProps<NameProps>()
 
 const emit = defineEmits(['remove'])
 
 const removeName = () => {
-    emit('remove', props.index)
+    emit('remove', index)
 }
 </script>
 

@@ -27,15 +27,15 @@ interface OptionProps {
 
 }
 
-const props = defineProps<OptionProps>();
+const { option, options } = defineProps<OptionProps>();
 
-const computeButtonClasses = (value, index) => {
+const computeButtonClasses = (value: string, index: number) => {
     const classNames = []
-    if (props.options[props.option.category] === value) {
+    if (options[option.category] === value) {
         classNames.push("option-active")
     }
     if (index === 0) classNames.push("option-left")
-    if (index === props.option.buttons.length - 1) classNames.push("option-right")
+    if (index === option.buttons.length - 1) classNames.push("option-right")
     return classNames.join(" ")
 
 }
