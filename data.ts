@@ -1,3 +1,10 @@
+interface Name {
+    id: number,
+    name:string,
+    gender: Gender;
+    popularity: Popularity;
+    length: Length
+  }
 export const names: Name[] = [
     {
         id: 1,
