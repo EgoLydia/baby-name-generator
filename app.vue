@@ -4,6 +4,7 @@
     <p>Choose your options and click the 'Find Names' button below</p>
     <div class="options-container">
       <Option :option="option" :options=options v-for=" option in optionsArray" :key="option.title" />
+      <button class="primary" @click="computedSelectedNames">Find Names</button>
       <div class="cards-container">
         <CardName :name="name" v-for="name, index in selectedNames" :key="name" @remove="() => removeName(index)"
           :index="index" />
@@ -46,6 +47,17 @@ const optionsArray = [
 ]
 
 const selectedNames = ref<string[]>([])
+
+const computedSelectedNames = () => {
+  const filteredNames = names.filter((name) => name.gender === options.gender)
+    .filter((name) => name.popularity === options.popularity)
+    .filter((name) => {
+      if (options.length === Length.ALL) return true
+      else return name.length === options.length
+    })
+  selectedNames.value = filteredNames.map(name => name.name)
+}
+
 const removeName = (index: number) => {
   const filteredNames = [...selectedNames.value]
   filteredNames.splice(index, 1)
