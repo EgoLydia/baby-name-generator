@@ -4,6 +4,14 @@
     <p>Choose your options and click the 'Find Names' button below</p>
     <div class="options-container">
       <Option :option="option" :options=options v-for=" option in optionsArray" :key="option.title" />
+      <div class="cards-container">
+        <CardName :name="name" v-for="name, index in selectedNames" :key="name" @remove="() => removeName(index)"
+          :index="index" />
+      </div>
+    </div>
+  </div>
+</template>
+
 <script setup lang="ts">
 import { Gender, Popularity, Length, names } from '@/data'
 
@@ -36,6 +44,15 @@ const optionsArray = [
     buttons: [Length.LONG, Length.ALL, Length.SHORT]
   },
 ]
+
+const selectedNames = ref<string[]>([])
+const removeName = (index: number) => {
+  const filteredNames = [...selectedNames.value]
+  filteredNames.splice(index, 1)
+  selectedNames.value = filteredNames
+}
+</script>
+
 
 <style scoped>
 .container {
