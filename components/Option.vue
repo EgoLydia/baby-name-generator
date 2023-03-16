@@ -1,7 +1,9 @@
+<template>
     <div class="option-container">
         <h4>{{ option.title }}</h4>
         <div class="option-button">
             <button v-for="value, index in option.buttons" :key="value" @click="() => options[option.category] = value"
+                class="option" :class="computeButtonClasses(value, index)">
                 {{ value }}
             </button>
         </div>
@@ -26,6 +28,19 @@ interface OptionProps {
 }
 
 const props = defineProps<OptionProps>();
+
+const computeButtonClasses = (value, index) => {
+    const classNames = []
+    if (props.options[props.option.category] === value) {
+        classNames.push("option-active")
+    }
+    if (index === 0) classNames.push("option-left")
+    if (index === props.option.buttons.length - 1) classNames.push("option-right")
+    return classNames.join(" ")
+
+}
+</script>
+
 <style scoped>
 .option-container {
     margin-bottom: 2rem;
