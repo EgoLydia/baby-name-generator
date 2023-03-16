@@ -5,6 +5,7 @@ interface Name {
     popularity: Popularity;
     length: Length
   }
+  
 export enum Gender {
     GIRL = 'Girl',
     BOY = 'Boy',

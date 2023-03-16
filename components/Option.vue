@@ -1,6 +1,8 @@
     <div class="option-container">
         <h4>{{ option.title }}</h4>
         <div class="option-button">
+            <button v-for="value, index in option.buttons" :key="value" @click="() => options[option.category] = value"
+                {{ value }}
             </button>
         </div>
     </div>
