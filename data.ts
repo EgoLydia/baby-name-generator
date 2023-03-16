@@ -5,6 +5,23 @@ interface Name {
     popularity: Popularity;
     length: Length
   }
+export enum Gender {
+    GIRL = 'Girl',
+    BOY = 'Boy',
+    UNISEX = 'Unisex'
+  }
+  
+  export enum Popularity {
+    TRENDY = 'Trendy',
+    UNIQUE = 'Unique',
+  }
+  
+  export enum Length {
+    SHORT = 'Short',
+    LONG = 'Long',
+    ALL = 'All'
+}
+  
 export const names: Name[] = [
     {
         id: 1,
