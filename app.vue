@@ -1,3 +1,27 @@
+<template>
+  <div class="container">
+    <h1>Baby Name Generator</h1>
+    <p>Choose your options and click the 'Find Names' button below</p>
+    <div class="options-container">
+      <Option :option="option" :options=options v-for=" option in optionsArray" :key="option.title" />
+const optionsArray = [
+  {
+    title: '1) Choose a gender',
+    category: 'gender',
+    buttons: [Gender.GIRL, Gender.BOY, Gender.UNISEX]
+  },
+  {
+    title: "2) Choose a name's popularity",
+    category: 'popularity',
+    buttons: [Popularity.TRENDY, Popularity.UNIQUE]
+  },
+  {
+    title: "3) Choose a name's length",
+    category: 'length',
+    buttons: [Length.LONG, Length.ALL, Length.SHORT]
+  },
+]
+
 <style scoped>
 .container {
   font-family: Arial, Helvetica, sans-serif;
