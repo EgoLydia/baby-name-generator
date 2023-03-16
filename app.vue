@@ -4,6 +4,21 @@
     <p>Choose your options and click the 'Find Names' button below</p>
     <div class="options-container">
       <Option :option="option" :options=options v-for=" option in optionsArray" :key="option.title" />
+<script setup lang="ts">
+import { Gender, Popularity, Length, names } from '@/data'
+
+interface OptionState {
+  gender: Gender;
+  popularity: Popularity;
+  length: Length
+}
+
+const options = reactive<OptionState>({
+  gender: Gender.BOY,
+  popularity: Popularity.UNIQUE,
+  length: Length.ALL
+})
+
 const optionsArray = [
   {
     title: '1) Choose a gender',
