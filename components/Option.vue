@@ -5,6 +5,25 @@
         </div>
     </div>
 </template>
+
+<script setup lang="ts">
+import { Gender, Length, Popularity } from "@/data"
+
+interface OptionProps {
+    option: {
+        title: string,
+        category: string,
+        buttons: Gender[] | Popularity[] | Length[]
+    };
+    options: {
+        gender: Gender,
+        popularity: Popularity,
+        length: Length
+    }
+
+}
+
+const props = defineProps<OptionProps>();
 <style scoped>
 .option-container {
     margin-bottom: 2rem;
