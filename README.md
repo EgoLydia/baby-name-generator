@@ -17,7 +17,8 @@ npm install
 pnpm install
 ```
 
-##Testing with Cypress
+## Testing with Cypress
+
 npx cypress open
 
 ## Development Server
