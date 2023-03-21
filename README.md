@@ -17,6 +17,9 @@ npm install
 pnpm install
 ```
 
+##Testing with Cypress
+npx cypress open
+
 ## Development Server
 
 Start the development server on http://localhost:3000
