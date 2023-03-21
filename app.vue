@@ -14,6 +14,7 @@
 </template>
 
 <script setup lang="ts">
+
 import { Gender, Popularity, Length, names } from '@/data'
 
 interface OptionState {
@@ -45,6 +46,26 @@ const optionsArray = [
     buttons: [Length.LONG, Length.ALL, Length.SHORT]
   },
 ]
+
+const apiKey = 'kDREaIfmjO/pzdmVmF0Xdg==VLUgZ5OhZuENwJea'
+
+// var gender = 'neutral'
+// $.ajax({
+//   method: 'GET',
+//   url: 'https://api.api-ninjas.com/v1/babynames?gender=' + gender,
+//   headers: { 'X-Api-Key': 'YOUR_API_KEY' },
+//   contentType: 'application/json',
+//   success: function (result) {
+//     console.log(result);
+//   },
+//   error: function ajaxError(jqXHR) {
+//     console.error('Error: ', jqXHR.responseText);
+//   }
+// });
+
+// const headers = useRequestHeaders([apiKey])
+
+// const { data: fetchNames } = await useFetch('https://api.api-ninjas.com/v1/babynames?gender=neutral', {headers})
 
 const selectedNames = ref<string[]>([])
 
